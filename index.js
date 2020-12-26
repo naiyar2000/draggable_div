@@ -4,12 +4,18 @@ const neResizer = document.querySelector('.ne');
 const nwResizer = document.querySelector('.nw');
 const swResizer = document.querySelector('.sw');
 const Resizer = document.querySelectorAll('.resizer');
+const divHeight = document.querySelector('.height');
+const divWidth = document.querySelector('.width');
 
 element.addEventListener('mousedown', mousedown);
 // seResizer.addEventListener('mousedown', mousedownSE);
 // neResizer.addEventListener('mousedown', mousedownNE);
 // nwResizer.addEventListener('mousedown', mousedownNW);
 // swResizer.addEventListener('mousedown', mousedownSW);
+
+const _rect = element.getBoundingClientRect();
+divHeight.innerHTML = _rect.height;
+divWidth.innerHTML = _rect.width;
 
 let isResizing = false;
 
@@ -69,6 +75,8 @@ for(let res of Resizer) {
 
             const rect = element.getBoundingClientRect();
             
+            console.log("width:", rect.width);
+            console.log("height:", rect.height);
 
             if(currentResizer.classList.contains('se')) {
                 element.style.width = rect.width - newX + "px";
@@ -82,11 +90,24 @@ for(let res of Resizer) {
                 element.style.height = rect.height + newY + "px";
                 element.style.top = rect.top - newY + "px";
                 element.style.left = rect.left - newX + "px";
-            } else {
+            } else if(currentResizer.classList.contains('sw')) {
                 element.style.width = rect.width + newX + "px";
                 element.style.height = rect.height - newY + "px";
                 element.style.left = rect.left - newX + "px";
+            } else if(currentResizer.classList.contains('n')) {
+                element.style.height = rect.height + newY + "px";
+                element.style.top = rect.top - newY + "px";
+            } else if(currentResizer.classList.contains('s')) {
+                element.style.height = rect.height - newY + "px";
+            } else if(currentResizer.classList.contains('w')) {
+                element.style.width = rect.width + newX + "px";
+                element.style.left = rect.left - newX + "px";
+            } else {
+                element.style.width = rect.width - newX + "px";
             }
+
+            divHeight.innerHTML = rect.height;
+            divWidth.innerHTML = rect.width;
 
             prevX = e.clientX;
             prevY = e.clientY;
