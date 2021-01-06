@@ -66,8 +66,8 @@
     cursor: n-resize;
     background-color: #ffffff;
     border: solid 2px black;
-    left: 45%;
-    top: -1%;
+    left: 50%;
+    top: -1px;
 }
 .s {
     width: 10px;
@@ -76,8 +76,8 @@
     cursor: s-resize;
     background-color: #ffffff;
     border: solid 2px black;
-    left: 45%;
-    top: 98%;
+    left: 50%;
+    bottom: -1px;
 }
 .w {
     width: 2px;
@@ -86,8 +86,8 @@
     cursor: w-resize;
     background-color: #ffffff;
     border: solid 2px black;
-    top: 43%;
-    left: -1%;
+    top: 50%;
+    left: -1px;
 }
 .e {
     width: 2px;
@@ -96,8 +96,8 @@
     cursor: e-resize;
     background-color: #ffffff;
     border: solid 2px black;
-    right: -1.5%;
-    top: 43%;
+    right: -1px;
+    top: 50%;
 }
 
 .displayBoard {
